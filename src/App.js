@@ -1,22 +1,23 @@
+import { useState } from 'react';
+
 import './App.css';
 
-const Person = ({ name, lastname, age }) => {
-  return (
-    <>
-      <h1>Name: {name}</h1>
-      <h2>Last name: {lastname}</h2>
-      <h2>Age: {age}</h2>
-    </>
-  );
-};
-
 function App() {
+  const [counter, setCounter] = useState(0);
+
   return (
     <div className="App">
-      <Person name='Julia' lastname='Pousa' age='30' />
-      <Person name='Juan' lastname='Pito' age='34' />
-      <Person name='Chuperto' lastname='Herna' age='23' />
-      <Person name={'Fran'} lastname={'Osorio'} age={'27'} />
+      <button
+        onClick={() =>
+          setCounter((prevCount) => (prevCount > 0 ? prevCount - 1 : 0))
+        }
+      >
+        -
+      </button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount) => prevCount + 1)}>
+        +
+      </button>
     </div>
   );
 }
