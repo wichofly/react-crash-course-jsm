@@ -1,3 +1,5 @@
+import './App.css';
+
 import { useEffect } from 'react';
 /*
   - We want to fetch the data from the api as soon as our component loads.
@@ -10,7 +12,6 @@ import { useEffect } from 'react';
 const API_URL = 'http://www.omdbapi.com?apikey=49233842';
 
 function App() {
-
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
@@ -22,7 +23,7 @@ function App() {
   useEffect(() => {
     searchMovies('Coco');
   }, []);
-  
+
   return <h1>App</h1>;
 }
 
