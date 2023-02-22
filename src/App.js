@@ -56,10 +56,12 @@ function App() {
 
       {movies?.length > 0 ? (
         <div className="container">
-          <MovieCard movie1={movies[0]} />
+          {movies.map((movie) => (
+            <MovieCard movie={movie} />
+          ))}
         </div>
       ) : (
-        <div className='empty'>
+        <div className="empty">
           <h2>No movies found</h2>
         </div>
       )}
