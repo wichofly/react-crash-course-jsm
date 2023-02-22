@@ -7,6 +7,15 @@ import { useEffect } from 'react';
 
 const API_URL = 'http://www.omdbapi.com?apikey=49233842';
 
+const movie1 = {
+  Title: 'Coco',
+  Year: '2017',
+  imdbID: 'tt2380307',
+  Type: 'movie',
+  Poster:
+    'https://m.media-amazon.com/images/M/MV5BYjQ5NjM0Y2YtNjZkNC00ZDhkLWJjMWItN2QyNzFkMDE3ZjAxXkEyXkFqcGdeQXVyODIxMzk5NjA@._V1_SX300.jpg',
+};
+
 function App() {
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
@@ -39,10 +48,20 @@ function App() {
           value={'Superman'}
           onChange={() => {}}
         />
-        <img src={SearchIcon} alt="search" />
+        <img src={SearchIcon} alt="search" onClick={() => {}} />
       </div>
 
-      <div></div>
+      <div className="container">
+        <div className="movie">
+          <div>
+            <p>{movie1.Year}</p>
+          </div>
+
+          <div>
+            <img src={movie1.Poster} alt={movie1.Title} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
