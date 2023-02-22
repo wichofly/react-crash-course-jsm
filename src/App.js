@@ -62,7 +62,7 @@ function App() {
               src={
                 movie1.Poster !== 'N/A'
                   ? movie1.Poster
-                  : 'https://via.placehlder.com/400'
+                  : 'https://via.placeholder.com/400'
               }
               alt={movie1.Title}
             />
