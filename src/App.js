@@ -2,7 +2,7 @@ import './App.css';
 import MovieCard from './MovieCard';
 import SearchIcon from './search.svg';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // My API key: 49233842
 
@@ -18,11 +18,13 @@ const movie1 = {
 };
 
 function App() {
+  const [movies, setMovies] = useState([]);
+
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
 
-    console.log(data.Search);
+    setMovies(data.Search);
     // Getting just the movies Array with "Search"
   };
 
@@ -52,9 +54,15 @@ function App() {
         <img src={SearchIcon} alt="search" onClick={() => {}} />
       </div>
 
-      <div className="container">
-        <MovieCard movie1={movie1} />
-      </div>
+      {movies?.length > 0 ? (
+        <div className="container">
+          <MovieCard movie1={movies[0]} />
+        </div>
+      ) : (
+        <div className='empty'>
+          <h2>No movies found</h2>
+        </div>
+      )}
     </div>
   );
 }
